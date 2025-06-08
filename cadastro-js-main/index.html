@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+    <header>
+
+    </header>
+
+    <div class="container">
+        <aside>
+            
+        </aside>
+        <main>
+            <h1>Cadastrar produto</h1>
+            <div>
+                
+            <form class="cadastro" action="">
+                <div class="form-group">
+                    <label for="Nome ">Nome</label>
+                    <input type="text" id="id-Nome">
+                </div>
+                <div class="form-group">
+                    <label for="">Preço:</label>
+                    <input type="number" name="inp-preco" id="id-preco">
+                </div>
+                <div class="form-group">
+                    <label for="">Qtd:</label>
+                    <input type="number" name="qtd" id="id-qtd">
+                </div>
+                <div class="form-group">
+                    <label for="">Categoria:</label>
+                    <select name="categ" id="id-categ" >
+                        <option>
+                        --Selecione</option>
+                            <option value="processadores">Processadores</option>
+                            <option value="placa-mae">Placa-mãe</option>
+                            <option value="memorias">Memorias</option>
+                    </select>
+                </div>
+                <div class="form-group"><button id="btnAdicionar"type="button">Cadastrar</button></div>
+                
+            </form>
+            <div>
+                <h2>Produtos</h2>
+                <table class="tabela" id="tabelaProdutos">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Preço</th>
+                            <th>Quantidade</th>
+                            <th>Categoria</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tabelaBody">
+                        
+                    </tbody>
+                </table>
+            </div>
+            </div>
+            
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
