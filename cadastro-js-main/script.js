@@ -1,6 +1,6 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
     const btnAdcionar = document.getElementById("btnAdicionar");
-    btnAdcionar.addEventListener("click", function () {
+    btnAdcionar.addEventListener("click", function principal() {
         const nomeProduto = document.getElementById("id-Nome").value;
         const preco = document.getElementById("id-preco").value;
         const qtd = document.getElementById("id-qtd").value;
@@ -24,20 +24,61 @@ document.addEventListener("DOMContentLoaded", function () {
         celulaPreco.textContent = preco;
         celulaQuantidade.textContent = qtd;
         celulaCateg.textContent = categoria
-
-        const botaoRemover = `<div class="botoes">
+        function botoesFun() {
+            const botoes = `<div class="botoes">
                                 <button class="btnExcluir">Excluir</button>
+                                <button class="btnEditar">Editar</button>
                             </div>`;
-        celulaAcoes.innerHTML = botaoRemover;
-       
+            celulaAcoes.innerHTML = botoes;
+            
+            
+        }
+        function botoesEdit() {
+            const botoes = `<div class="botoes">
+                                <button class="btnSalvar">Salvar</button>
+                                <button class="btnCancelar">Cancelar</button>
+                            </div>`;
+            celulaAcoes.innerHTML = botoes;
+            const btnEdit = celulaAcoes.querySelector(".btnCancelar");
+            btnEdit.addEventListener("click", function () {
+                botoesFun()
+                tabela.rows[novaLinha.rowIndex - 1].cells[0].innerText = nomeProduto;
+                tabela.rows[novaLinha.rowIndex - 1].cells[1].innerText = preco;
+                tabela.rows[novaLinha.rowIndex - 1].cells[2].innerText = qtd;
+                tabela.rows[novaLinha.rowIndex - 1].cells[3].innerText = categoria;
+            });
+        }
+        botoesFun();
+
         const btnExcluir = celulaAcoes.querySelector(".btnExcluir");
 
-        btnExcluir.addEventListener("click", function(){
-            if (confirm("Tem certeza que deseja excluir este produto?")){
+        btnExcluir.addEventListener("click", function () {
+            if (confirm("Tem certeza que deseja excluir este produto?")) {
+
+
                 tabela.deleteRow(novaLinha.rowIndex -1);
             }
-        })
 
+        });
+
+
+
+        const btnEditar = celulaAcoes.querySelector(".btnEditar");
+        btnEditar.addEventListener("click", function () {
+            botoesEdit();
+            console.log(tabela.rows[novaLinha.rowIndex - 1].cells[2])
+            tabela.rows[novaLinha.rowIndex - 1].cells[0].innerHTML = `<div><input type="text" value="${nomeProduto}" id="newNome"></div>`
+            tabela.rows[novaLinha.rowIndex - 1].cells[1].innerHTML = `<div><input type="text" value="${preco}" id="newPreco"></div>`
+            tabela.rows[novaLinha.rowIndex - 1].cells[2].innerHTML = `<div><input type="text" value="${qtd}" id="newQtd"></div>`
+            tabela.rows[novaLinha.rowIndex - 1].cells[3].innerHTML = `<div><select id="sel">
+                            <option value="processadores">Processadores</option>
+                            <option value="placa-mae">Placa-mãe</option>
+                            <option value="memorias">Memorias</option>
+                    </select></div>`
+            console.log(tabela.rows[novaLinha.rowIndex - 1].cells[0])
+
+
+        })
     })
 });
 

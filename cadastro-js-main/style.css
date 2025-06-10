@@ -106,3 +106,11 @@ form {
     justify-content: center;
     
 }
+.btnEditar {
+    background-color: rgb(55, 8, 167);
+    cursor: pointer;
+    border: none;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 5px;
+}
