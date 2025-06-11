@@ -114,3 +114,19 @@ form {
     color: white;
     border-radius: 5px;
 }
+.btnSalvar {
+    background-color: rgb(13, 206, 77);
+    cursor: pointer;
+    border: none;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 5px;
+}
+.btnCancelar {
+    background-color: rgb(206, 42, 13);
+    cursor: pointer;
+    border: none;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 5px;
+}
