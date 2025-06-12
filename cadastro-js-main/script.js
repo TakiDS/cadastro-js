@@ -37,18 +37,12 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <button class="btnEditar">Editar</button>
                             </div>`;
             celulaAcoes.innerHTML = botoes;
-
             const btnExcluir = celulaAcoes.querySelector(".btnExcluir");
-
             btnExcluir.addEventListener("click", function () {
                 if (confirm("Tem certeza que deseja excluir este produto?")) {
-
-
                     tabela.deleteRow(novaLinha.rowIndex - 1);
                 }
-
             });
-
             const btnEditar = celulaAcoes.querySelector(".btnEditar");
             btnEditar.addEventListener("click", function () {
                 botoesEdit();
@@ -62,12 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <option value="memorias">Memorias</option>
                     </select></div>`
                 console.log(tabela.rows[novaLinha.rowIndex - 1].cells[0])
-
-
             })
-
-            
-
         }
         function botoesEdit() {
             const botoes = `<div class="botoes">
@@ -91,6 +80,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 const newQtd = document.getElementById("newQtd").value;
                 const newCategoria = document.getElementById("sel").value;
 
+                if (newNome == "" || newPreco == "" || newQtd == "" || newCategoria == "") {
+                    alert("Por favor, preencha todos os campos.");
+                    return;
+                }
+
                 tabela.rows[novaLinha.rowIndex - 1].cells[0].innerText = newNome;
                 tabela.rows[novaLinha.rowIndex - 1].cells[1].innerText = newPreco;
                 tabela.rows[novaLinha.rowIndex - 1].cells[2].innerText = newQtd;
@@ -99,12 +93,6 @@ document.addEventListener("DOMContentLoaded", function () {
             })
         }
         botoesFun();
-
-
-
-
-
-
     })
 });
 
